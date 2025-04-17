@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Abaikan jika file atau folder sudah ada
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Abaikan file statis agar tidak terkena rewrite
+RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot)$ [NC]
+RewriteRule ^index$ index.php [L]
+# Mengubah URL 'daftar_titipan' menjadi 'inden.php'
+RewriteRule ^daftar_titipan$ inden.php [L]
