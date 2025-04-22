@@ -28,44 +28,7 @@
 
     <!--====== NAVBAR TWO PART START ======-->
 
-    <section class="navbar-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg">
-
-                        <a class="navbar-brand" href="./">
-                            <img src="<?= $idt['url'] ?>/gambar/logo/<?php echo $idt['logo_kanan']; ?>" class="h-8" alt="Logo">
-                            <span class="judul" style="font-weight: bold;">SD Muh 3 Bandung</span>
-
-                        </a>
-
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="toggler-icon"></span>
-                            <span class="toggler-icon"></span>
-                            <span class="toggler-icon"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
-                            <ul class="navbar-nav m-auto">
-                                <li class="nav-item active"><a class="page-scroll" href="./">home</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#syarat-ketentuan">Syarat & Ketentuan</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#jadwal-pendaftaran">Jadwal Pendaftaran</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#pricing">Brosur & Panduan</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="daftar_titipan">Daftar Titipan</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="navbar-btn d-none d-sm-inline-block">
-                            <ul>
-                                <li><a class="solid" href="#">Login</a></li>
-                            </ul>
-                        </div>
-                    </nav> <!-- navbar -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
+    <?php include "menu.php"; ?>
 
     <!--====== NAVBAR TWO PART ENDS ======-->
 
@@ -83,8 +46,8 @@
                                     <h1 class="title">SD Muh 3 Bandung</h1>
                                     <p class="text">PENERIMAAN PESERTA DIDIK BARU</p>
                                     <ul class="slider-btn rounded-buttons">
-                                        <li><a class="main-btn rounded-one" href="#">DAFTAR</a></li>
-                                        <li><a class="main-btn rounded-two" href="#">PENDAFTAR</a></li>
+                                        <li><a class="main-btn rounded-one" href="./jadwal">DAFTAR</a></li>
+                                        <li><a class="main-btn rounded-two" href="./registrant">PENDAFTAR</a></li>
                                     </ul>
                                 </div>
                             </div>

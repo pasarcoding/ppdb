@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Abaikan jika file atau folder sudah ada
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Hilangkan .php dari URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L,QSA]
+
+# Abaikan file statis agar tidak terkena rewrite
+RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot)$ [NC]
+RewriteRule ^index$ index.php [L]

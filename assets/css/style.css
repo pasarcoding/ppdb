@@ -124,14 +124,14 @@ p {
 
 /*===== All Section Title Style =====*/
 .section-title .title {
-  font-size: 44px;
+  font-size: 28px;
   font-weight: 600;
   color: #121212;
-  line-height: 55px;
+  line-height: 40px;
 }
 @media (max-width: 767px) {
   .section-title .title {
-    font-size: 30px;
+    font-size: 22px;
     line-height: 35px;
   }
 }
@@ -3061,16 +3061,18 @@ p {
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .navbar-area .navbar .navbar-btn {
-    position: absolute;
+    /* position: absolute;
     right: 70px;
-    top: 7px;
+    top: 7px; */
+    padding-left:15px;
   }
 }
 @media (max-width: 767px) {
   .navbar-area .navbar .navbar-btn {
-    position: absolute;
+    /* position: absolute;
     right: 60px;
-    top: 7px;
+    top: 7px; */
+    padding-left: 15px;
   }
 }
 .navbar-area .navbar .navbar-btn li {
@@ -4427,4 +4429,165 @@ p.form-message.error.form-message.error {
 .row.custom-gap .col-md-6 li i {
   margin-right: 0.5rem; /* Space between the icon and the text */
   color: #28a745; /* Green color for the icons */
+}
+
+.arrow-icon {
+  transition: transform 0.3s;
+}
+
+.btn.collapsed .arrow-icon {
+  transform: rotate(0deg);
+}
+
+.btn:not(.collapsed) .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.main-container {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+.step-sidebar {
+  width: 22%;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;   
+  text-align: center;  
+}
+
+.step-item {
+  text-align: center;
+  pointer-events: none;
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 auto;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.step-item.active .step-number {
+  color: #198754;
+  border: 4px solid #198754;
+}
+
+.step-item.completed .step-number {
+  background: #198754;
+  color: white;
+}
+
+.step-item.error .step-number {
+  color: #dc3545;
+  border: 4px solid #dc3545;
+}
+
+.step-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  padding: 5px;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.form-section h5 {
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.form-control {
+  border-radius: 8px;
+  width: 100%;
+  height: 43px;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+label.error {
+  color: red;
+  font-size: 0.875rem;
+  display: block;
+  margin-top: 5px;
+}
+
+.divider {
+    width: 2px;
+    height: 40px;
+    background-color: #e0e0e0;
+    margin: 0 auto 5px auto;
+}
+
+.form-control:focus {
+    border-color: #28a745 !important;
+    box-shadow: none !important;
+}
+
+/* Adjust alignment of the checkbox and remember me text */
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #28a745;
+    border-color: #28a745; 
+}
+
+.custom-control-input:checked ~ .custom-control-label::after {
+    color: #fff; 
+}
+
+.custom-control-input:checked:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5); 
+}
+
+.custom-control-input:hover ~ .custom-control-label::before {
+    border-color: #28a745;
+    box-shadow: none
+}
+
+.custom-control-label {
+    padding-top: 2px;
+    font-size: 0.875rem !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    color: #4f4f4f !important;
+}
+
+/* Sembunyikan default radio */
+.radio-success input[type="radio"] {
+    accent-color: #28a745; /* Modern browser support */
+}
+
+/* Untuk browser lama */
+.radio-success input[type="radio"]:checked {
+    background-color: #28a745;
+    border-color: #28a745;
 }

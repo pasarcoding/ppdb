@@ -74,3 +74,50 @@
 
 <!--====== Main js ======-->
 <script src="assets/js/main.js"></script>
+
+<script>
+    flatpickr(".class-date-picker", {
+        locale: 'id',
+        enableTime: false,
+        dateFormat: "Y-m-d"
+    });
+</script>
+
+<?php 
+    if (isset($_SESSION['notif'])){
+        if ($_SESSION['notif'] == 'error-token'){
+            echo '<script>
+                    Swal.fire({
+                        title: "Gagal",
+                        text: "Token tidak valid, silahkan refresh halaman ini.",
+                        icon: "error"
+                    });
+                    </script>';
+        }elseif ($_SESSION['notif'] == 'error-gelombang'){
+            echo '<script>
+                    Swal.fire({
+                        title: "Gagal",
+                        text: "Gelombang pendaftaran telah ditutup.",
+                        icon: "error"
+                    });
+                    </script>';
+        }elseif ($_SESSION['notif'] == 'error-kuota'){
+            echo '<script>
+                    Swal.fire({
+                        title: "Gagal",
+                        text: "Kuota pendaftaran telah penuh.",
+                        icon: "error"
+                    });
+                    </script>';
+        }elseif ($_SESSION['notif'] == 'success-daftar'){
+            echo '<script>
+                    Swal.fire({
+                        title: "Sukses",
+                        text: "Pendaftaran berhasil, silahkan cek whatsapp ayah atau ibu untuk login akun PPDB anda.",
+                        icon: "success"
+                    });
+                    </script>';
+        }
+        unset($_SESSION['notif']);
+    }
+?>

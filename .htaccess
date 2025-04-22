@@ -4,8 +4,25 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
+# Hilangkan .php dari URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L,QSA]
+
 # Abaikan file statis agar tidak terkena rewrite
 RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot)$ [NC]
 RewriteRule ^index$ index.php [L]
 # Mengubah URL 'daftar_titipan' menjadi 'inden.php'
-RewriteRule ^daftar_titipan$ inden.php [L]
+RewriteRule ^daftar-titipan$ list_titipan.php [L]
+
+# Mengubah URL 'jadwal' menjadi 'jadwal.php'
+RewriteRule ^jadwal$ schedule.php [L]
+
+# Mengubah URL 'daftar' menjadi 'daftar.php'
+RewriteRule ^daftar$ register.php [L]
+
+# Mengubah URL 'pendaftar' menjadi 'pendaftar.php'
+RewriteRule ^pendaftar$ registrant.php [L]
+
+# Mengubah URL 'login' menjadi 'login.php'
+RewriteRule ^login$ login.php [L]
