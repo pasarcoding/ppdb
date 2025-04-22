@@ -21,8 +21,8 @@
                         <!-- Baris khusus untuk tombol-tombol -->
                         <div class="row" style="margin-top: 15px;">
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-primary btn-block btn-sm">
-                            Unduh Formulir Pendaftaran
+                            <a href="../siswa/formulir" target="_blank" class="btn btn-primary btn-block btn-sm">
+                                Unduh Formulir Pendaftaran
                             </a>
                         </div>
 
