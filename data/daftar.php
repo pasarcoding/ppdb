@@ -270,7 +270,17 @@
                 'status' => false,
                 'message' => 'NIK siswa telah terdaftar.',
             ]);
+            exit;
         }
+
+        $tanggal_lahir_ayah = !empty($tanggal_lahir_ayah) ? "'".$tanggal_lahir_ayah."'" : "NULL";
+        $pendidikan_terakhir_ayah = !empty($pendidikan_terakhir_ayah) ? "'".$pendidikan_terakhir_ayah."'" : "NULL";
+        $pekerjaan_ayah = !empty($pekerjaan_ayah) ? "'".$pekerjaan_ayah."'" : "NULL";
+        $penghasilan_ayah = !empty($penghasilan_ayah) ? "'".$penghasilan_ayah."'" : "NULL";
+        $tanggal_lahir_ibu = !empty($tanggal_lahir_ibu) ? "'".$tanggal_lahir_ibu."'" : "NULL";
+        $pendidikan_terakhir_ibu = !empty($pendidikan_terakhir_ibu) ? "'".$pendidikan_terakhir_ibu."'" : "NULL";
+        $pekerjaan_ibu = !empty($pekerjaan_ibu) ? "'".$pekerjaan_ibu."'" : "NULL";
+        $penghasilan_ibu = !empty($penghasilan_ibu) ? "'".$penghasilan_ibu."'" : "NULL";
 
         //simpan data
         $query = mysqli_query($conn, "
@@ -280,15 +290,15 @@
                 nisnSiswa, nmSiswa, foto_siswa, nik_siswa, tempat_lahir, tglLahirSiswa, jkSiswa, agamaSiswa, jml_saudara, urutan_anak, kewarganegaraan, no_reg_akta_kelahiran, tempat_tinggal, moda_transportasi, hobi, file_kk, no_kk, nama_kepala_keluarga,
                 nik_ayah, nama_ayah, noHpOrtu, email_ayah_ibu, tmpt_lahir_ayah, tgl_lahir_ayah, pendidikan_terakhir_ayah, pekerjaan_ayah, penghasilan_ayah, nik_ibu, nama_ibu, noHpIbu, tmpt_lahir_ibu, tgl_lahir_ibu, pendidikan_terakhir_ibu, pekerjaan_ibu, penghasilan_ibu, ttdOrtu,   
                 provinsi, kab_kota, kecamatan, kelurahan, rt_rw, koordinat_lintang, koordinat_bujur, alamatOrtu,
-                tinggi_badan, berat_badan, jarak_tempuh, waktu_tempuh, 
+                tinggi_badan, berat_badan, jarak_tempuh, waktu_tempuh 
             )
             VALUES (
                 '$no_pendaftaran', '$passwordHash',
                 '$tanggalPendaftaran', '$jalur_pendaftaran', '$tahun_ajaran_atau_gelombang', '$tahunAjaran', '$gelombang', '$asal_sekolah', '$nama_asal_sekolah', '$kecamatan_TK_atau_RA_asal',
                 '$nisn_siswa', '$nama_siswa', '$targetFotoSiswa', '$nik_siswa', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$agama_siswa', '$jumlah_saudara', '$urutan_anak', '$kewarganegaraan', '$no_reg_akta_kelahiran', '$tempat_tinggal', '$moda_transportasi', '$hobi', '$targetFileKK', '$no_kartu_keluarga', '$nama_kepala_keluarga',
-                '$nik_ayah', '$nama_ayah', '$no_hp_ayah', '$email_ayah_atau_ibu', '$tempat_lahir_ayah', '$tanggal_lahir_ayah', '$pendidikan_terakhir_ayah', '$pekerjaan_ayah', '$penghasilan_ayah', '$nik_ibu', '$nama_ibu', '$no_hp_ibu', '$tempat_lahir_ibu', '$tanggal_lahir_ibu', '$pendidikan_terakhir_ibu', '$pekerjaan_ibu', '$penghasilan_ibu', '$targetFotoTtdOrtu',
+                '$nik_ayah', '$nama_ayah', '$no_hp_ayah', '$email_ayah_atau_ibu', '$tempat_lahir_ayah', $tanggal_lahir_ayah, $pendidikan_terakhir_ayah, $pekerjaan_ayah, $penghasilan_ayah, '$nik_ibu', '$nama_ibu', '$no_hp_ibu', '$tempat_lahir_ibu', $tanggal_lahir_ibu, $pendidikan_terakhir_ibu, $pekerjaan_ibu, $penghasilan_ibu, '$targetFotoTtdOrtu',
                 '$nmProvinsi', '$nmKabupaten', '$nmKecamatan', '$nmKelurahan', '$rtRw', '$koordinat_lintang', '$koordinat_bujur', '$alamat',
-                '$tinggi_badan', '$berat_badan', '$jarak_tempat_tinggal_ke_sekolah', '$waktu_tempuh_ke_sekolah', 
+                '$tinggi_badan', '$berat_badan', '$jarak_tempat_tinggal_ke_sekolah', '$waktu_tempuh_ke_sekolah'
             )
         ");
 

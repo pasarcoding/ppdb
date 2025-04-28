@@ -75,6 +75,8 @@
     $dtPenghasilanIbu = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM rb_pendidikan WHERE id='$dtSiswa[penghasilan_ibu]'"));
     $penghasilanIbu = $dtPenghasilanIbu['tingkat_pendidikan'];
     
+    $rtRw = explode(' ', $dtSiswa['rt_rw']);
+    $alamatLengkap = $dtSiswa['alamatOrtu'].' | RT '.$rtRw[0].' / RW '.$rtRw[1].' KEL. '.$dtSiswa['kecamatan'].' KEC. '.$dtSiswa['kelurahan'].' KAB/KOTA. '.$dtSiswa['kab_kot'].' PROV. '.$dtSiswa['provinsi'];
 
     $html = '
         <div style="text-align: center;">
@@ -293,8 +295,13 @@
             </tr>
             <tr>
                 <td colspan="2" style="padding-top: 15px;">
-                    <strong>Alamat Lengkap</strong>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '.strtoupper($dtSiswa['alamatOrtu']).'
+                    <table>
+                        <tr>
+                            <td style="font-weight:bold; width:140px;">Alamat Lengkap</td>
+                            <td width="10px">:</td>
+                            <td>'.strtoupper($alamatLengkap).'</td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>

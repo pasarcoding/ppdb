@@ -539,6 +539,18 @@
 
             togglePrevBtn();
             toggleNextBtnText();
+
+            if (step == 1){
+                focusAndScroll('#tanggal_pendaftaran');
+            }else if (step == 2){
+                focusAndScroll('#nisn_siswa');
+            }else if (step == 3){
+                focusAndScroll('#nik_ayah');
+            }else if (step == 4){
+                focusAndScroll('#provinsi');
+            }else if (step == 5){
+                focusAndScroll('#tinggi_badan');
+            }
         }
 
         function togglePrevBtn() {
@@ -1013,6 +1025,17 @@
                 }
             })
         });
+
+        function focusAndScroll(selector) {
+            var el = $(selector);
+            if (el.length) {
+                $('html, body').animate({
+                    scrollTop: el.offset().top - 150
+                }, 500, function() {
+                    el.focus();
+                });
+            }
+        }
     </script>
 
 </body>
