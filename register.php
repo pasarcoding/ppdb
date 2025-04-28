@@ -867,6 +867,11 @@
                         dataType: 'json',
                         processData: false,
                         contentType: false,
+                        beforeSend: function() {
+                            $('#nextBtn').text('Loading...');
+                            $('#nextBtn').prop('disabled', true);
+                            $('#prevBtn').prop('disabled', true);
+                        },
                         success: function(resp) {
                             if (!resp.status){
                                 Swal.fire({
@@ -884,6 +889,11 @@
                                 text: "Terjadi kesalahan, silahkan coba lagi.",
                                 icon: "error"
                             });
+                        },
+                        complete: function() {
+                            $('#nextBtn').text('Daftarkan Siswa');
+                            $('#nextBtn').prop('disabled', false);
+                            $('#prevBtn').prop('disabled', false);
                         }
                     });
                     return false;
