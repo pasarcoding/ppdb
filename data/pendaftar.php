@@ -26,13 +26,13 @@
             1 => 'siswa.no_pendaftaran',
             2 => 'siswa.nmSiswa',
             3 => 'siswa.asal_sekolah',
-            4 => 'ppdb_status.statusPendafataran'
+            4 => 'ppdb_pemberkasan.statusPendafataran'
         ];
 
         // Total data tanpa filter
-        $sql = "SELECT siswa.*, ppdb_status.statusPendafataran 
+        $sql = "SELECT siswa.*, ppdb_pemberkasan.statusPendafataran 
                 FROM siswa 
-                INNER JOIN ppdb_status ON siswa.idSiswa=ppdb_status.idSiswa AND siswa.id_gelombang=ppdb_status.idGlombang 
+                INNER JOIN ppdb_pemberkasan ON siswa.idSiswa=ppdb_pemberkasan.idSiswa AND siswa.id_gelombang=ppdb_pemberkasan.idGlombang 
                 WHERE siswa.nisSiswa IS NULL AND siswa.untukAjaran='$ta_aktif[idTahunAjaran]'";
         $query = mysqli_query($conn, $sql);
         $totalData = mysqli_num_rows($query);
@@ -45,7 +45,7 @@
             $where .= " AND (siswa.no_pendaftaran LIKE '%$search%' 
                         OR siswa.nmSiswa LIKE '%$search%' 
                         OR siswa.asal_sekolah LIKE '%$search%' 
-                        OR ppdb_status.statusPendafataran LIKE '%$search%')";
+                        OR ppdb_pemberkasan.statusPendafataran LIKE '%$search%')";
         }
 
         // Hitung filtered

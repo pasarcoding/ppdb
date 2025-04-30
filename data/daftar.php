@@ -303,10 +303,12 @@
         ");
 
         if ($query){
-            $idSiswa = mysqli_insert_id($conn);
+            $cekIdNew = mysqli_fetch_assoc(mysqli_query($conn, "SELECT idSiswa FROM siswa ORDER BY idSiswa DESC LIMIT 1"));
+            $idSiswa = $cekIdNew['idSiswa'];
+            
             mysqli_query($conn, "
-                INSERT INTO ppdb_status (idGlombang, idSiswa, statusPendaftaran) 
-                VALUES ('$gelombang', '$idSiswa', 'PROSES VERIFIKASI')
+                INSERT INTO ppdb_pemberkasan (idGlombang, idSiswa, formulir, suratPernyataan, asliKTP, asliKK, asliAktaKelahiran, copyKTP, copyKK, copyAktaKelahiran, copyDTKS, buktiTf, statusPendafataran, statusPemberkasan, statusPembayaran)
+                VALUES ('$gelombang', '$idSiswa', 'BELUM', 'BELUM', 'BELUM', 'BELUM', 'BELUM', 'BELUM', 'BELUM', 'BELUM', 'TIDAK', 'BELUM', 'PROSES VERIFIKASI', 'BELUM DAFTAR ULANG', 'PEMBAYARAN PROSES VERIFIKASI')
             ");
 
             // kirim notif akun whatsapp
@@ -326,6 +328,7 @@ Password: ".$no_kartu_keluarga."
 Harap segera login untuk periksa kembali biodata calon peserta didik, upload bukti pembayaran dan cetak formulir pendaftaran
 
 ".$linkLogin;
+
             send_wa($linkSend, $apiKey, $sender, $number, $message);
 
             $_SESSION['notif'] = 'success-daftar';

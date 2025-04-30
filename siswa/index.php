@@ -30,13 +30,11 @@
     $dtSiswa = mysqli_fetch_assoc(mysqli_query($conn, "
         SELECT 
             sws.*, 
-            stts.statusPendafataran, stts.statusPemberkasan, stts.statusPembayaran, 
             brks.formulir, brks.suratPernyataan, brks.asliKTP, brks.asliAktaKelahiran, 
             brks.copyKTP, brks.copyKK, brks.copyAktaKelahiran, brks.copyDTKS,
+            brks.statusPendafataran, brks.statusPemberkasan, brks.statusPembayaran, 
             glmbng.biaya, glmbng.nmGelombang
         FROM siswa sws 
-        LEFT JOIN ppdb_status stts 
-            ON sws.idSiswa = stts.idSiswa AND sws.id_gelombang = stts.idGlombang 
         LEFT JOIN ppdb_pemberkasan brks 
             ON sws.idSiswa = brks.idSiswa AND sws.id_gelombang = brks.idGlombang 
         INNER JOIN ppdb_gelombang glmbng 
@@ -44,6 +42,7 @@
         WHERE sws.idSiswa = '$idSiswa' 
         LIMIT 1
     "));
+    
     $idt = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM identitas"));
     $ta = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM tahun_ajaran where aktif='Y'"));
 ?>
